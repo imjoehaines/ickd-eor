@@ -1,7 +1,11 @@
 <template name="list">
+    <form class="addTodo">
+        <input type="text" class="eight columns offset-by-two newTodo">
+    </form>
+
     {{#each todoList}}
-        <div class="row">
+        <section class="row">
             {{> todo}}
-        </div>
+        </section>
     {{/each}}
 </template>
