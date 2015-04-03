@@ -19,5 +19,5 @@ Template.registerHelper("formatDateDisplay", function(date) {
  * @return {string}      The formatted date
  */
 Template.registerHelper("formatDateTimestamp", function(date) {
-    return moment(date).format('MMMM do YYYY - HH:mma');
+    return moment(date).format('MMMM do YYYY HH:mma');
 });

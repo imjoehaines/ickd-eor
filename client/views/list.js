@@ -1,6 +1,6 @@
 Template.list.helpers({
     todoList: function () {
-        return Todo.find({}, {sort: {createdAt: -1}});
+        return Todo.find({done: false}, {sort: {createdAt: -1}});
     }
 });
 
@@ -17,5 +17,14 @@ Template.list.events({
         });
 
         $newTodo.val('');
+    },
+
+    'click .check': function(event) {
+        event.preventDefault();
+
+        var id = $(event.target).data('id');
+
+        Todo.update({ _id: id }, {$set: { done: true }});
+
     }
 });

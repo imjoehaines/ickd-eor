@@ -1,25 +1,29 @@
 <template name="todo">
-    <section class="three columns">
-        <abbr title="{{ formatDateTimestamp createdAt }}" data-livestamp="{{ createdAt.toISOString }}">
-            {{ formatDateDisplay createdAt }}
-        </abbr>
-    </section>
-
-    <section class="seven columns">
-        {{ task }}
-    </section>
-
-    <section class="two columns">
-        <section class="six columns">
-            <a href="#" class="statusOptions check">
-                ✓
-            </a>
+    <section class="row task done-{{ done }}">
+        <section class="two columns date">
+            <abbr title="{{ formatDateTimestamp createdAt }}" data-livestamp="{{ createdAt.toISOString }}">
+                {{ formatDateDisplay createdAt }}
+            </abbr>
         </section>
 
-        <section class="six columns">
-            <a href="#" class="statusOptions cross">
-                ✕
-            </a>
+        <section class="nine columns">
+            {{ task }}
+        </section>
+
+        <section class="one column">
+            {{#unless done}}
+                <section class="six columns">
+                    <a href="#" class="statusOptions check" data-id="{{ _id }}" title="Mark task complete">
+                        ✓
+                    </a>
+                </section>
+            {{/unless}}
+
+            <section class="six columns">
+                <a href="#" class="statusOptions cross" data-id="{{ _id }}" title="Delete task">
+                    ✕
+                </a>
+            </section>
         </section>
     </section>
 </template>

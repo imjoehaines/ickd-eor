@@ -1,5 +1,10 @@
-h1 {
+header {
     text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+header h1 {
+    margin-bottom: -1rem;
 }
 
 .container {
@@ -10,22 +15,40 @@ h1 {
     font-size: 2rem;
 }
 
+.no-items {
+    text-align: center;
+}
+
+.task {
+    margin-bottom: 1rem;
+}
+
+.done-true {
+    opacity: 0.66;
+}
+
+.date {
+    padding-top: 0.5rem;
+    font-size: 1.5rem;
+    text-align: right;
+}
+
 .statusOptions {
     text-decoration: none;
 }
 
 .check {
-    color: green;
+    color: rgb(60, 140, 60);
 }
 
 .check:hover {
-    color: lightgreen;
+    color: rgb(100, 180, 100);
 }
 
 .cross {
-    color: red;
+    color: rgb(220, 80, 80);
 }
 
 .cross:hover {
-    color: pink;
+    color: rgb(250, 110, 110);
 }

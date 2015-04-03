@@ -1,11 +1,15 @@
 <template name="list">
-    <form class="addTodo">
+    <form class="addTodo row">
         <input type="text" class="eight columns offset-by-two newTodo">
     </form>
 
-    {{#each todoList}}
-        <section class="row">
+    {{#if todoList.count}}
+        {{#each todoList}}
             {{> todo}}
+        {{/each}}
+    {{else}}
+        <section class="row six columns offset-by-three no-items">
+            <h3>You don't have any incomplete items on your todo list</h3>
         </section>
-    {{/each}}
+    {{/if}}
 </template>
