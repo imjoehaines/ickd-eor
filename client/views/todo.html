@@ -1,6 +1,6 @@
 <template name="todo">
     <section class="three columns">
-        <abbr title="{{ formatDateTimestamp createdAt }}">
+        <abbr title="{{ formatDateTimestamp createdAt }}" data-livestamp="{{ createdAt.toISOString }}">
             {{ formatDateDisplay createdAt }}
         </abbr>
     </section>
