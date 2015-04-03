@@ -1,3 +1,25 @@
 <template name="todo">
-    <p>{{ task }} - <abbr title="{{ formatDateTimestamp createdAt }}">{{ formatDateDisplay createdAt }}</abbr> - {{ status }}</p>
+    <section class="three columns">
+        <abbr title="{{ formatDateTimestamp createdAt }}">
+            {{ formatDateDisplay createdAt }}
+        </abbr>
+    </section>
+
+    <section class="seven columns">
+        {{ task }}
+    </section>
+
+    <section class="two columns">
+        <section class="six columns">
+            <a href="#" class="statusOptions check">
+                ✓
+            </a>
+        </section>
+
+        <section class="six columns">
+            <a href="#" class="statusOptions cross">
+                ✕
+            </a>
+        </section>
+    </section>
 </template>

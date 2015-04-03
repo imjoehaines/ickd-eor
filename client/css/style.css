@@ -1,0 +1,27 @@
+.container {
+    margin-top: 5rem;
+}
+
+.row {
+    font-size: 2rem;
+}
+
+.statusOptions {
+    text-decoration: none;
+}
+
+.check {
+    color: green;
+}
+
+.check:hover {
+    color: lightgreen;
+}
+
+.cross {
+    color: red;
+}
+
+.cross:hover {
+    color: pink;
+}
