@@ -7,6 +7,16 @@ header h1 {
     margin-bottom: -1rem;
 }
 
+button {
+    text-transform: none;
+}
+
+.sweet-alert button {
+    padding: 0 30px;
+    color: rgb(255, 255, 255);
+    font-family: inherit;
+}
+
 .container {
     margin-top: 5rem;
 }

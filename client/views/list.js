@@ -57,7 +57,24 @@ Template.list.events({
         var target = $(event.target);
         var id = target.data('id');
 
+    swal({
+        title: 'Are you sure?',
+        text: 'Are you sure you want to delete this task?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#DD6B55',
+        confirmButtonText: 'Delete',
+        closeOnConfirm: false
+    }, function() {
         Todo.remove({ _id: id });
+
+        swal(
+            'Deleted!',
+            'Successfully deleted the task.',
+            'success'
+        );
+    });
+
     },
 
     'click input[type=checkbox]': function(event) {
