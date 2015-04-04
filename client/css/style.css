@@ -65,3 +65,13 @@ button {
 .delete:hover {
     color: rgb(250, 110, 110);
 }
+
+#login-buttons .login-button, .accounts-dialog .login-button {
+    background-color: #33C3F0;
+    border-color: #33C3F0;
+}
+
+#login-buttons .login-button:hover, .accounts-dialog .login-button:hover {
+    background-color: #1EAEDB;
+    border-color: #1EAEDB;
+}

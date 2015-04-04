@@ -10,8 +10,15 @@
         <header>
             <h1>ickd</h1>
             <small>Your todo list</small>
+
+            <section class="login {{currentUser}}">
+                {{> loginButtons}}
+            </section>
         </header>
 
-        {{> yield}}
+
+        {{#if currentUser}}
+            {{> yield}}
+        {{/if}}
     </section>
 </template>

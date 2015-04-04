@@ -13,7 +13,7 @@ Template.list.helpers({
             query = [complete];
         }
 
-        return Todo.find({done: {$in: query}}, {sort: {createdAt: -1}});
+        return Todo.find({done: {$in: query}, userId: Meteor.userId()}, {sort: {createdAt: -1}});
     },
 
     activeFilter: function() {
@@ -36,7 +36,8 @@ Template.list.events({
         Todo.insert({
             task: $newTodo.val(),
             createdAt: new Date(),
-            done: false
+            done: false,
+            userId: Meteor.userId()
         });
 
         $newTodo.val('');
