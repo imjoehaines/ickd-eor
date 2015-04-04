@@ -11,3 +11,4 @@ accounts-ui
 iron:router
 momentjs:moment
 copleykj:livestamp
+fortawesome:fontawesome
