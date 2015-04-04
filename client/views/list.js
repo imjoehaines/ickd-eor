@@ -36,20 +36,13 @@ Template.list.events({
         $newTodo.val('');
     },
 
-    'click .check.true': function(event) {
+    'click .check': function(event) {
         event.preventDefault();
 
-        var id = $(event.target).data('id');
+        var target = $(event.target);
+        var id = target.data('id');
 
-        Todo.update({ _id: id }, {$set: { done: false }});
-    },
-
-    'click .check:not(.true)': function(event) {
-        event.preventDefault();
-
-        var id = $(event.target).data('id');
-
-        Todo.update({ _id: id }, {$set: { done: true }});
+        Todo.update({ _id: id }, {$set: { done: !target.hasClass('true') }});
     },
 
     'click input[type=checkbox]': function(event) {
