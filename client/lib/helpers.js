@@ -5,7 +5,7 @@
  * If the date is more than 1 month ago returns 'January 1st 2015', otherwise
  * it will return '1 minute ago'
  */
-Template.registerHelper("formatDateDisplay", function(date) {
+Template.registerHelper('formatDateDisplay', function(date) {
     if (moment(date).isBefore(moment().subtract(1, 'month'))) {
         return moment(date).format('MMMM do YYYY');
     } else {
@@ -18,6 +18,6 @@ Template.registerHelper("formatDateDisplay", function(date) {
  * @param  {object} date The date to format
  * @return {string}      The formatted date
  */
-Template.registerHelper("formatDateTimestamp", function(date) {
+Template.registerHelper('formatDateTimestamp', function(date) {
     return moment(date).format('MMMM do YYYY HH:mma');
 });
