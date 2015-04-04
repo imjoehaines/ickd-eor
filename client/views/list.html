@@ -1,7 +1,20 @@
 <template name="list">
     <form class="addTodo row">
-        <input type="text" class="eight columns offset-by-two newTodo">
+        <input type="text" class="eight columns offset-by-two newTodo" placeholder="Add a new task&hellip;">
     </form>
+
+    <section class="row four columns offset-by-four filters">
+        <label for="incomplete" class="six columns">
+            <input type="checkbox" name="filters" id="incomplete" checked>
+            Incomplete
+        </label>
+        <label for="complete" class="six columns">
+            <input type="checkbox" name="filters" id="complete">
+            Complete
+        </label>
+    </section>
+
+    <span class="u-cf"></span>
 
     {{#if todoList.count}}
         {{#each todoList}}
@@ -9,7 +22,7 @@
         {{/each}}
     {{else}}
         <section class="row six columns offset-by-three no-items">
-            <h3>You don't have any incomplete items on your todo list</h3>
+            <p>You don't have any incomplete items on your todo list</p>
         </section>
     {{/if}}
 </template>

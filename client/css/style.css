@@ -11,8 +11,13 @@ header h1 {
     margin-top: 5rem;
 }
 
-.row {
-    font-size: 2rem;
+.addTodo {
+    margin-bottom: 0;
+}
+
+.filters {
+    text-align: center;
+    margin-bottom: 3rem;
 }
 
 .no-items {
