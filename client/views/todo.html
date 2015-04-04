@@ -14,14 +14,14 @@
 
         <section class="one column">
             <section class="six columns">
-                <a href="#" class="statusOptions check {{ done }}" data-id="{{ _id }}" title="{{ getStatusTitle done }}">
-                    {{ getSymbol done }}
+                <a href="#" class="statusOptions check" title="{{ getStatusTitle done }}">
+                    <i class="fa {{ getIcon done }} {{ done }}" data-id="{{ _id }}"></i>
                 </a>
             </section>
 
             <section class="six columns">
-                <a href="#" class="statusOptions cross" data-id="{{ _id }}" title="Delete task">
-                    ✕
+                <a href="#" class="statusOptions delete" title="Delete task">
+                    <i class="fa fa-trash-o {{ done }}" data-id="{{ _id }}"></i>
                 </a>
             </section>
         </section>

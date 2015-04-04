@@ -48,10 +48,10 @@ header h1 {
     color: rgb(100, 180, 100);
 }
 
-.cross {
+.delete {
     color: rgb(220, 80, 80);
 }
 
-.cross:hover {
+.delete:hover {
     color: rgb(250, 110, 110);
 }

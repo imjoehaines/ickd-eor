@@ -1,5 +1,5 @@
 Template.list.helpers({
-    todoList: function () {
+    todoList: function() {
         Session.setDefault('incomplete', true);
         Session.setDefault('complete', false);
 
@@ -16,8 +16,14 @@ Template.list.helpers({
         return Todo.find({done: {$in: query}}, {sort: {createdAt: -1}});
     },
 
-    activeFilter: function () {
-        return Session.get('incomplete') && 'incomplete' || 'complete';
+    activeFilter: function() {
+        if (Session.get('incomplete') && Session.get('complete') || Todo.find().count() === 0) {
+            return '';
+        } else if (Session.get('incomplete')) {
+            return 'incomplete';
+        } else {
+            return 'complete';
+        }
     }
 });
 
@@ -43,6 +49,15 @@ Template.list.events({
         var id = target.data('id');
 
         Todo.update({ _id: id }, {$set: { done: !target.hasClass('true') }});
+    },
+
+    'click .delete': function(event) {
+        event.preventDefault();
+
+        var target = $(event.target);
+        var id = target.data('id');
+
+        Todo.remove({ _id: id });
     },
 
     'click input[type=checkbox]': function(event) {

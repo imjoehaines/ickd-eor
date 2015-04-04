@@ -3,8 +3,8 @@ Template.todo.helpers({
         return done && 'Complete' || 'Incomplete';
     },
 
-    getSymbol: function(done) {
-        return done && '✗' || '✓';
+    getIcon: function(done) {
+        return done && 'fa-times' || 'fa-check';
     },
 
     getStatusTitle: function(done) {
