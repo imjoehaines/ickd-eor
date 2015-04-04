@@ -34,9 +34,9 @@ Template.list.events({
         var $newTodo = $('.newTodo');
 
         Todo.insert({
-          task: $newTodo.val(),
-          createdAt: new Date(),
-          done: false
+            task: $newTodo.val(),
+            createdAt: new Date(),
+            done: false
         });
 
         $newTodo.val('');
@@ -46,34 +46,30 @@ Template.list.events({
         event.preventDefault();
 
         var target = $(event.target);
-        var id = target.data('id');
 
-        Todo.update({ _id: id }, {$set: { done: !target.hasClass('true') }});
+        Todo.update({ _id: this.id }, {$set: { done: !target.hasClass('true') }});
     },
 
     'click .delete': function(event) {
         event.preventDefault();
 
-        var target = $(event.target);
-        var id = target.data('id');
+        swal({
+            title: 'Are you sure?',
+            text: 'Are you sure you want to delete this task?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#DD6B55',
+            confirmButtonText: 'Delete',
+            closeOnConfirm: false
+        }, function() {
+            Todo.remove({ _id: this.id });
 
-    swal({
-        title: 'Are you sure?',
-        text: 'Are you sure you want to delete this task?',
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#DD6B55',
-        confirmButtonText: 'Delete',
-        closeOnConfirm: false
-    }, function() {
-        Todo.remove({ _id: id });
-
-        swal(
-            'Deleted!',
-            'Successfully deleted the task.',
-            'success'
-        );
-    });
+            swal(
+                'Deleted!',
+                'Successfully deleted the task.',
+                'success'
+            );
+        });
 
     },
 
