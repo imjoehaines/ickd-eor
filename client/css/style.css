@@ -32,10 +32,8 @@ header h1 {
     opacity: 0.66;
 }
 
-.date {
-    padding-top: 0.5rem;
-    font-size: 1.5rem;
-    text-align: right;
+.status {
+    text-align: center;
 }
 
 .statusOptions {

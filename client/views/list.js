@@ -14,6 +14,10 @@ Template.list.helpers({
         }
 
         return Todo.find({done: {$in: query}}, {sort: {createdAt: -1}});
+    },
+
+    activeFilter: function () {
+        return Session.get('incomplete') && 'incomplete' || 'complete';
     }
 });
 
@@ -32,13 +36,20 @@ Template.list.events({
         $newTodo.val('');
     },
 
-    'click .check': function(event) {
+    'click .check.true': function(event) {
+        event.preventDefault();
+
+        var id = $(event.target).data('id');
+
+        Todo.update({ _id: id }, {$set: { done: false }});
+    },
+
+    'click .check:not(.true)': function(event) {
         event.preventDefault();
 
         var id = $(event.target).data('id');
 
         Todo.update({ _id: id }, {$set: { done: true }});
-
     },
 
     'click input[type=checkbox]': function(event) {
