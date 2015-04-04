@@ -33,12 +33,7 @@ Template.list.events({
 
         var $newTodo = $('.newTodo');
 
-        Todo.insert({
-            task: $newTodo.val(),
-            createdAt: new Date(),
-            done: false,
-            userId: Meteor.userId()
-        });
+        Meteor.call('addTask', $newTodo.val());
 
         $newTodo.val('');
     },
@@ -46,13 +41,16 @@ Template.list.events({
     'click .check': function(event) {
         event.preventDefault();
 
-        var target = $(event.target);
+        var target = $(event.target); 
+        var isDone = !target.hasClass('true');
 
-        Todo.update({ _id: this.id }, {$set: { done: !target.hasClass('true') }});
+        Meteor.call('updateTask', this._id, isDone);
     },
 
     'click .delete': function(event) {
         event.preventDefault();
+
+        var id = this._id;
 
         swal({
             title: 'Are you sure?',
@@ -63,7 +61,7 @@ Template.list.events({
             confirmButtonText: 'Delete',
             closeOnConfirm: false
         }, function() {
-            Todo.remove({ _id: this.id });
+            Meteor.call('deleteTask', id);
 
             swal(
                 'Deleted!',
