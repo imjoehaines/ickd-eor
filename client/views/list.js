@@ -1,12 +1,21 @@
 Template.list.helpers({
+    /**
+     * Reactive data source for todo list. Updates when the filter checkboxes change
+     */
     todoList: function() {
+        // default filter setup - incomplete only
         Session.setDefault('incomplete', true);
         Session.setDefault('complete', false);
 
+        // booleans to show inomplete/complete tasks
+        // session variables used to make this reactive
         var incomplete = Session.get('incomplete');
         var complete = Session.get('complete');
+
         var query;
 
+        // make 'query' array to include only records with 'done' matching
+        // a value in the array.
         if (incomplete && complete) {
             query = [true, false];
         } else {
@@ -16,7 +25,12 @@ Template.list.helpers({
         return Todo.find({done: {$in: query}, userId: Meteor.userId()}, {sort: {createdAt: -1}});
     },
 
+    /**
+     * Function to get the text to show the name of the active filter
+     * @return {string} the active filter
+     */
     activeFilter: function() {
+        // if both are true or the list is empty then no filter text should be shown
         if (Session.get('incomplete') && Session.get('complete') || Todo.find().count() === 0) {
             return '';
         } else if (Session.get('incomplete')) {
